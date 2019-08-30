@@ -49,8 +49,8 @@ public class A1Jedi {
 			for (int j = 0; j < numberOfItemsBought[i]; j++) {
 				// This line is not working.
 				int numberOfJItem = s.nextInt();
+				String nameOfItem = s.next();
 				for (int k = 0; k < numberOfItems; k++) {
-					String nameOfItem = s.next();
 					if (nameOfItem.contentEquals(namesOfItems[k])) {
 						numberOfEachItem[k] = numberOfEachItem[k] + numberOfJItem;
 						// I don't think this next line will work
