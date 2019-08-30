@@ -103,9 +103,9 @@ public class A1Adept {
 		average = total / totals.length;
 		
 		// This section prints the output
-		System.out.println( "Biggest: " + firstNames[idxOfBiggest] + " " + lastNames[idxOfBiggest] + " (" + totals[idxOfBiggest] +")");
-		System.out.println( "Smallest: " + firstNames[idxOfSmallest] + " " + lastNames[idxOfSmallest] + " (" + totals[idxOfSmallest] +")");
-		System.out.println( "Average: " + average);
+		System.out.println( "Biggest: " + firstNames[idxOfBiggest] + " " + lastNames[idxOfBiggest] + " (" + String.format("%.2f", totals[idxOfBiggest]) +")");
+		System.out.println( "Smallest: " + firstNames[idxOfSmallest] + " " + lastNames[idxOfSmallest] + " (" + String.format("%.2f", totals[idxOfSmallest]) +")");
+		System.out.println( "Average: " + String.format("%.2f", average));
 		
 		// Honestly I could have used a class for this and it might have been easier.
 		

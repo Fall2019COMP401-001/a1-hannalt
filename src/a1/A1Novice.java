@@ -42,7 +42,7 @@ public class A1Novice {
 		
 		// This prints the output for each customer.
 		for (int i = 0; i < firstNames.length; i++) {
-			System.out.println(firstNames[i].charAt(0) + ". " + lastNames[i] + ": " + totals[i]);
+			System.out.println(firstNames[i].charAt(0) + ". " + lastNames[i] + ": " + String.format("%.2f", totals[i]));
 		}
 		
 	}
