@@ -42,19 +42,34 @@ public class A1Jedi {
 			firstNames[i] = s.next();
 			lastNames[i] = s.next();
 			numberOfItemsBought[i] = s.nextInt();
-			
+			String[] nameOfItemsForICustomer = new String[numberOfItemsBought[i]];
 			/* This for loop works to count the number of customers who bought an item
 			 * and how many times an item was bought.
 			 */
+			int notAgain = -1;
 			for (int j = 0; j < numberOfItemsBought[i]; j++) {
-				// This line is not working.
 				int numberOfJItem = s.nextInt();
-				String nameOfItem = s.next();
+				nameOfItemsForICustomer[j] = s.next();
 				for (int k = 0; k < numberOfItems; k++) {
-					if (nameOfItem.contentEquals(namesOfItems[k])) {
+					if (nameOfItemsForICustomer[j].contentEquals(namesOfItems[k])) {
 						numberOfEachItem[k] = numberOfEachItem[k] + numberOfJItem;
 						// I don't think this next line will work
-						numberOfEachCustomer[k] = numberOfEachCustomer[k] + 1;
+					}
+				}
+				
+				for (int k = 0; k < nameOfItemsForICustomer.length; k++) {
+					for (int m = 0; m < namesOfItems.length; m++) {
+						if (nameOfItemsForICustomer[k] == null) {
+							break;
+						} else if (namesOfItems[m] == null) {
+							break;
+						} else if (nameOfItemsForICustomer[k].contentEquals(namesOfItems[m])) {
+							if (numberOfEachCustomer[m] <= i) {
+									numberOfEachCustomer[m] = numberOfEachCustomer[m] + 1;
+									notAgain = i;
+									break;
+							}
+						}
 					}
 				}
 			}
@@ -62,7 +77,7 @@ public class A1Jedi {
 		
 		// This will print the output.
 		for (int i = 0; i < namesOfItems.length; i++) {
-			if (numberOfEachCustomer[i] == 0) {
+			if (numberOfEachItem[i] == 0) {
 				System.out.println( "No customers bought " + namesOfItems[i]);
 			} else {
 				System.out.println( numberOfEachCustomer[i] + " customers bought " + numberOfEachItem[i] + " " + namesOfItems[i]);
