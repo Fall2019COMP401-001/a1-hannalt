@@ -46,7 +46,10 @@ public class A1Jedi {
 			/* This for loop works to count the number of customers who bought an item
 			 * and how many times an item was bought.
 			 */
-			
+			int[] notAgain = new int[numberOfItems];
+			for (int j = 0; j < notAgain.length; j++) {
+				notAgain[j] = -1;
+			}
 			for (int j = 0; j < numberOfItemsBought[i]; j++) {
 				int numberOfJItem = s.nextInt();
 				nameOfItemsForICustomer[j] = s.next();
@@ -58,15 +61,14 @@ public class A1Jedi {
 				}
 				
 				for (int m = 0; m < namesOfItems.length; m++) {
-					int notAgain = -1;
 					if (nameOfItemsForICustomer[j] == null) {
 						break;
 					} else if (namesOfItems[m] == null) {
 						break;						
 					} else if (nameOfItemsForICustomer[j].contentEquals(namesOfItems[m])) {
-						if (notAgain == -1) {
+						if (notAgain[m] == -1) {
 							numberOfEachCustomer[m] = numberOfEachCustomer[m] + 1;
-							notAgain = i;
+							notAgain[m] = i;
 							break;
 						}
 					}
